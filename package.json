@@ -1,0 +1,140 @@
+{
+  "name": "syn-note",
+  "version": "0.0.1",
+  "description": "simple rich editor with react",
+  "author": "80xer",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:80xer/syn-note.git"
+  },
+  "homepage": "https://github.com/80xer/syn-note",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "jsnext:main": "dist/index.es.js",
+  "engines": {
+    "node": ">=8",
+    "npm": ">=5"
+  },
+  "scripts": {
+    "dev": "run-p build:watch start",
+    "start": "styleguidist server --open",
+    "styleguide:build": "styleguidist build",
+    "build": "rollup -c",
+    "build:watch": "rollup -c -w",
+    "test": "jest",
+    "test:coverage": "jest --coverage --forceExit --colors",
+    "lint": "esw --ext .jsx --ext .js --color",
+    "lint:fix": "npm run lint --fix",
+    "prepare": "npm run build",
+    "prerelease": "npm run lint:fix && npm run test:coverage && npm run build",
+    "release": "npm publish",
+    "predeploy": "npm run styleguide:build",
+    "deploy": "gh-pages -d styleguide"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "@svgr/rollup": "^4.3.2",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^24.9.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "babel-preset-react-app": "^9.0.1",
+    "cross-env": "^5.2.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "eslint": "^6.3.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-flowtype": "^4.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.0.1",
+    "eslint-watch": "^6.0.0",
+    "gh-pages": "^2.1.1",
+    "jasmine-expect": "^4.0.3",
+    "jest": "^24.9.0",
+    "jest-pnp-resolver": "^1.2.1",
+    "jest-resolve": "^24.9.0",
+    "node-sass": "^4.12.0",
+    "npm-run-all": "^4.1.5",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-app-polyfill": "^1.0.2",
+    "react-dom": "^16.9.0",
+    "react-styleguidist": "^9.1.16",
+    "react-test-renderer": "^16.9.0",
+    "rollup": "^1.20.3",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-terser": "^5.1.1",
+    "rollup-plugin-url": "^2.2.2",
+    "webpack": "^4.39.3",
+    "webpack-blocks": "^2.0.1"
+  },
+  "files": [
+    "dist"
+  ],
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts",
+      "!src/**/index.js"
+    ],
+    "resolver": "jest-pnp-resolver",
+    "setupFiles": [
+      "react-app-polyfill/jsdom",
+      "<rootDir>/scripts/enzymeConfig.js"
+    ],
+    "testMatch": [
+      "**/__tests__/**/*.[jt]s?(x)",
+      "**/?(*.)+(spec|test).[jt]s?(x)"
+    ],
+    "testEnvironment": "jsdom",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/scripts/cssTransform.js",
+      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/scripts/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web",
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "web.ts",
+      "ts",
+      "web.tsx",
+      "tsx",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ]
+  }
+}
